@@ -17,12 +17,12 @@ fi
 
 
 ## -------------------
-## Create folders
+echo Creating folders
 mkdir -p $1/$1
 
 
 ## -------------------
-## Create LICENSE
+echo Creating LICENSE
 
 license="Copyright (c) 2018
 
@@ -49,7 +49,7 @@ echo "$license" > $1/LICENSE
 
 
 ## -----------------------
-## Create manifest
+echo Creating manifest
 manifest="# Include the README
 include *.md
 
@@ -64,7 +64,7 @@ echo "$manifest" > $1/MANIFEST.in
 
 
 ## -------------------
-## Create README.md
+echo Creating README.md
 readme="# Example Python Package
 
 This is a simple example \`python\` package. You can use
@@ -75,7 +75,7 @@ echo "$readme" > $1/README.md
 
 
 ## -------------------
-## Create Setup files
+echo Creating setup files
 setup="import setuptools
 
 with open(\"README.md\", \"r\") as fh:
@@ -125,7 +125,7 @@ echo "$cfg" > $1/setup.cfg
 
 
 ## ----------------------
-## Create Hello World
+echo Creating Hello World
 echo "from .hello_world import greeting" > "$1/$1/__init__.py"
 
 rm -f $1/$1/hello_world.py
@@ -137,7 +137,7 @@ echo "$hello_world" > $1/$1/hello_world.py
 
 
 ## -----------------------
-## Create tests
+echo Creating tests
 mkdir -p $1/$1/tests
 echo "" > $1/$1/tests/__init__.py
 
