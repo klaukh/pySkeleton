@@ -110,8 +110,7 @@ setuptools.setup(name=\"$1\",
     data_files=[],
     include_package_data=True,
     scripts=[],
-    test_suite=\"nose.collector\",
-    tests_require=[\"nose\"],
+    test_suite=\"tests\",
 )
 "
 
@@ -138,8 +137,8 @@ echo "$hello_world" > $1/$1/hello_world.py
 
 ## -----------------------
 echo Creating tests
-mkdir -p $1/$1/tests
-echo "" > $1/$1/tests/__init__.py
+mkdir -p $1/tests
+echo "" > $1/tests/__init__.py
 
 test="from unittest import TestCase
 
@@ -148,8 +147,11 @@ import $1
 class SampleTest(TestCase):
     def test_is_none(self):
         self.assertIsNone($1.hello_world.greeting())
+
+if __name__ == \"__main__\":
+    unittest.main()
 "
 
-echo "$test" > $1/$1/tests/test_hello_world.py
+echo "$test" > $1/tests/test_hello_world.py
 
 

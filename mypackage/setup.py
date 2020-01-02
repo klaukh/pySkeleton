@@ -32,7 +32,6 @@ setuptools.setup(name="mypackage",
     data_files=[],
     include_package_data=True,
     scripts=[],
-    test_suite="nose.collector",
-    tests_require=["nose"],
+    test_suite="tests",
 )
 
